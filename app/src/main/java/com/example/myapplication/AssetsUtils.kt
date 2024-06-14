@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.AssetManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import androidx.annotation.Nullable
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -21,15 +22,14 @@ object AssetsUtils {
     fun getTessDataPath(context: Context): String {
         return getLocalDir(context).absolutePath
     }
-//
-//    fun getImageFile(context: Context): File {
-//        return File(getLocalDir(context), Config.IMAGE_NAME)
-//    }
 
-//    @Nullable
-//    fun getImageBitmap(context: Context): Bitmap {
-//        return BitmapFactory.decodeFile(getImageFile(context).absolutePath)
-//    }
+    fun getImageFile(context: Context): File {
+        return File(getLocalDir(context), "screenshot_20240614_090845.png")
+    }
+
+    fun getImageBitmap(context: Context): Bitmap {
+        return BitmapFactory.decodeFile(getImageFile(context).absolutePath)
+    }
 
     fun extractAssets(context: Context) {
         val am = context.assets
